@@ -18,23 +18,6 @@ steps:
 
 - script: /usr/local/bin/carthage copy-frameworks 
   displayName: 'Carthage copy'
-  
-- task: Xcode@5
-  displayName: 'Running XCTest/XCUITest'
-  inputs:
-    actions: 'test'
-    scheme: '$(scheme)'
-    sdk: 'iphonesimulator'
-    configuration: '$(configuration)'
-    xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
-    packageApp: false
-    xcWorkspacePath: 'myCurrencyExchange.xcodeproj'
-    destinationSimulators: 'iPhone 8'
-    destinationTypeOption: 'simulators'
-    destinationPlatformOption: 'iOS'
-    signingOption: "auto"
-    useXcpretty: true
-    publishJUnitResults: 'build/reports/junit.xml'
 - task: Xcode@5
   displayName: 'Xcode debug build'
   inputs:
@@ -46,3 +29,21 @@ steps:
     packageApp: false
     xcWorkspacePath: 'myCurrencyExchange.xcodeproj'
     useXcpretty: true
+
+  
+- task: Xcode@5
+  displayName: 'Running XCTest/XCUITest'
+  inputs:
+    actions: 'test'
+    scheme: '$(scheme)'
+    sdk: 'iphonesimulator'
+    configuration: '$(configuration)'
+    xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
+    packageApp: false
+    xcWorkspacePath: 'myCurrencyExchange.xcodeproj'
+    destinationSimulators: 'iPhone 14'
+    destinationTypeOption: 'simulators'
+    destinationPlatformOption: 'iOS'
+    signingOption: "auto"
+    useXcpretty: true
+    publishJUnitResults: 'build/reports/junit.xml'
