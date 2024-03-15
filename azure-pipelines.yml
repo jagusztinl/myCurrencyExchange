@@ -12,8 +12,13 @@ variables:
   configuration: 'Debug'
 
 steps:
+
 - script: /usr/local/bin/carthage update --platform ios --use-xcframeworks
   displayName: 'Carthage installation'
+
+- script: /usr/local/bin/carthage copy-frameworks 
+  displayName: 'Carthage copy'
+  
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
   inputs:
@@ -23,7 +28,7 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
     packageApp: false
-    xcWorkspacePath: 'myCurrencyExchange.xcworkspace'
+    xcWorkspacePath: 'myCurrencyExchange.xcodeproj'
     destinationSimulators: 'iPhone 14'
     destinationTypeOption: 'simulators'
     destinationPlatformOption: 'iOS'
