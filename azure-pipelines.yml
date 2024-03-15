@@ -13,7 +13,7 @@ variables:
 
 steps:
 
-- script: /usr/local/bin/carthage update --platform ios  --no-use-binaries --use-xcframeworks
+- script: /usr/local/bin/carthage bootstrap --platform ios  --no-use-binaries --use-xcframeworks
   displayName: 'Carthage installation'
 
 - script: /usr/local/bin/carthage copy-frameworks 
