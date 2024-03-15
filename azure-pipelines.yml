@@ -13,13 +13,30 @@ variables:
 
 steps:
 
-- script: /usr/local/bin/carthage update --platform ios  --no-use-binaries
+- script: /usr/local/bin/carthage update --platform ios  --no-use-binaries --use-xcframeworks
   displayName: 'Carthage installation'
 
 - script: /usr/local/bin/carthage copy-frameworks 
   displayName: 'Carthage copy'
 
-  
+  ## Firstly builds the tests without running them
+- task: Xcode@5
+  inputs:
+    actions: 'build-for-testing'
+    sdk: 'iphonesimulator'
+    packageApp: false
+    destinationPlatformOption: 'iOS'
+    destinationSimulators: 'iPhone 14'
+
+## Runs the previously built tests
+- task: Xcode@5
+  inputs:
+    actions: 'test-without-building'
+    sdk: 'iphonesimulator'
+    packageApp: false
+    destinationPlatformOption: 'iOS'
+    destinationSimulators: 'iPhone 14'
+
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
   inputs:
