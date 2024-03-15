@@ -12,7 +12,7 @@ variables:
   configuration: 'Debug'
 
 steps:
-- script: /usr/local/bin/carthage update --use-xcframeworks
+- script: /usr/local/bin/carthage update --platform ios --use-xcframeworks
   displayName: 'Carthage installation'
 - task: Xcode@5
   displayName: 'Running XCTest/XCUITest'
