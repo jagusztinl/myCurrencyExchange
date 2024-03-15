@@ -23,7 +23,7 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
     packageApp: false
-    xcWorkspacePath: 'myCurrencyExchange.xcodeproj'
+    xcWorkspacePath: 'myCurrencyExchange.xcworkspace'
     destinationSimulators: 'iPhone 14'
     destinationTypeOption: 'simulators'
     destinationPlatformOption: 'iOS'
