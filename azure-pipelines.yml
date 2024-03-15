@@ -13,7 +13,7 @@ variables:
 
 steps:
 
-- script: /usr/local/bin/carthage update --platform ios --use-xcframeworks
+- script: /usr/local/bin/carthage update --platform ios --use-xcframeworks --no-use-binaries
   displayName: 'Carthage installation'
 
 - script: /usr/local/bin/carthage copy-frameworks 
@@ -29,7 +29,7 @@ steps:
     xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
     packageApp: false
     xcWorkspacePath: 'myCurrencyExchange.xcodeproj'
-    destinationSimulators: 'iPhone 14'
+    destinationSimulators: 'iPhone 8'
     destinationTypeOption: 'simulators'
     destinationPlatformOption: 'iOS'
     signingOption: "auto"
