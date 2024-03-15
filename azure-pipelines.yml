@@ -24,7 +24,7 @@ steps:
     xcodeVersion: 'default' # Options: 8, 9, default, specifyPath
     packageApp: false
     xcWorkspacePath: 'myCurrencyExchange.xcodeproj'
-    destinationSimulators: 'iPhone 7'
+    destinationSimulators: 'iPhone 14'
     destinationTypeOption: 'simulators'
     destinationPlatformOption: 'iOS'
     signingOption: "auto"
